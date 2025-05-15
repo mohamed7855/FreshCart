@@ -4,11 +4,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
-import { CartComponent } from './pages/cart/cart.component';
-import { ProductsComponent } from './pages/products/products.component';
-import { BrandsComponent } from './pages/brands/brands.component';
-import { CategoriesComponent } from './pages/categories/categories.component';
-import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 export const routes: Routes = [
   {
@@ -24,15 +19,44 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       { path: 'home', component: HomeComponent, title: 'home' },
-      { path: 'cart', component: CartComponent, title: 'cart' },
-      { path: 'products', component: ProductsComponent, title: 'products' },
-      { path: 'brands', component: BrandsComponent, title: 'brands' },
+      {
+        path: 'cart',
+        loadComponent: () =>
+          import('./pages/cart/cart.component').then((c) => c.CartComponent),
+        title: 'cart',
+      },
+      {
+        path: 'products',
+        loadComponent: () =>
+          import('./pages/products/products.component').then(
+            (c) => c.ProductsComponent
+          ),
+        title: 'products',
+      },
+      {
+        path: 'brands',
+        loadComponent: () =>
+          import('./pages/brands/brands.component').then(
+            (c) => c.BrandsComponent
+          ),
+        title: 'brands',
+      },
       {
         path: 'categories',
-        component: CategoriesComponent,
+        loadComponent: () =>
+          import('./pages/categories/categories.component').then(
+            (c) => c.CategoriesComponent
+          ),
         title: 'categories',
       },
-      { path: 'checkout', component: CheckoutComponent, title: 'checkout' },
+      {
+        path: 'checkout',
+        loadComponent: () =>
+          import('./pages/checkout/checkout.component').then(
+            (c) => c.CheckoutComponent
+          ),
+        title: 'checkout',
+      },
       { path: '**', component: NotFoundComponent },
     ],
   },

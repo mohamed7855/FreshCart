@@ -1,4 +1,4 @@
-<nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+<nav class="fixed top-0 z-50 w-full bg-gray-100 border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
             <div class="flex items-center justify-start rtl:justify-end">
@@ -14,10 +14,48 @@
                     </svg>
                 </button>
                 <a href="https://flowbite.com" class="flex ms-2 md:me-24">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
-                    <span
-                        class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Flowbite</span>
+                    <img src="./images/freshcart-logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
                 </a>
+            </div>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="capitalize flex gap-3 p-4 md:p-0 rounded-lg  flex-row rtl:space-x-reverse dark:bg-gray-800">
+                    <li>
+                        <a class="text-gray-700" aria-current="page" routerLink="/home"
+                            routerLinkActive="bg-green-600 text-white">home</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700" aria-current="page" routerLink="/products"
+                            routerLinkActive="bg-green-600 text-white">products</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700" aria-current="page" routerLink="/cart"
+                            routerLinkActive="bg-green-600 text-white">cart</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700" aria-current="page" routerLink="/categories"
+                            routerLinkActive="bg-green-600 text-white">categories</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700" aria-current="page" routerLink="/brands"
+                            routerLinkActive="bg-green-600 text-white">brands</a>
+                    </li>
+                    @if (isLogin()) {
+                    <li>
+                        <a class="text-gray-700" aria-current="page" role="button">logout</a>
+                    </li>
+                    }
+                    @else {
+                    <li>
+                        <a class="text-gray-700" aria-current="page" routerLink="/login"
+                            routerLinkActive="bg-green-600 text-white">login</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-700" aria-current="page" routerLink="/register"
+                            routerLinkActive="bg-green-600 text-white">register</a>
+                    </li>
+                    }
+
+                </ul>
             </div>
             <div class="flex items-center">
                 <div class="flex items-center ms-3">
@@ -42,23 +80,19 @@
                         </div>
                         <ul class="py-1" role="none">
                             <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                     role="menuitem">Dashboard</a>
                             </li>
                             <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                     role="menuitem">Settings</a>
                             </li>
                             <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                     role="menuitem">Earnings</a>
                             </li>
                             <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                     role="menuitem">Sign out</a>
                             </li>
                         </ul>
